@@ -1,6 +1,6 @@
 package nl.dmatin.raboassignment.repository;
 
-import nl.dmatin.raboassignment.model.User;
+import nl.dmatin.raboassignment.model.user.User;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

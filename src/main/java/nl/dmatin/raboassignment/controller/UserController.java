@@ -6,9 +6,9 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import nl.dmatin.raboassignment.dto.UserDataDTO;
-import nl.dmatin.raboassignment.dto.UserDataResponseDTO;
-import nl.dmatin.raboassignment.model.User;
+import nl.dmatin.raboassignment.model.dto.UserDataDTO;
+import nl.dmatin.raboassignment.model.dto.UserDataResponseDTO;
+import nl.dmatin.raboassignment.model.user.User;
 import nl.dmatin.raboassignment.service.UserService;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 

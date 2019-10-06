@@ -1,7 +1,7 @@
 package nl.dmatin.raboassignment.service;
 
 import nl.dmatin.raboassignment.exception.CustomException;
-import nl.dmatin.raboassignment.model.User;
+import nl.dmatin.raboassignment.model.user.User;
 import nl.dmatin.raboassignment.repository.UserRepository;
 import nl.dmatin.raboassignment.security.JwtTokenProvider;
 

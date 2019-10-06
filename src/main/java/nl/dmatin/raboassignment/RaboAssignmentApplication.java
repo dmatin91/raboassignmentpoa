@@ -1,6 +1,6 @@
 package nl.dmatin.raboassignment;
 
-import nl.dmatin.raboassignment.model.Role;
+import nl.dmatin.raboassignment.model.user.Role;
 import nl.dmatin.raboassignment.repository.RoleRepository;
 
 import org.modelmapper.ModelMapper;

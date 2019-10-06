@@ -6,7 +6,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import nl.dmatin.raboassignment.config.ApplicationJWTProperties;
 import nl.dmatin.raboassignment.exception.CustomException;
-import nl.dmatin.raboassignment.model.Role;
+import nl.dmatin.raboassignment.model.user.Role;
 
 import java.util.Base64;
 import java.util.Date;

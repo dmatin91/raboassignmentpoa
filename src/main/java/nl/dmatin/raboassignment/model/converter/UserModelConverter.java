@@ -1,7 +1,7 @@
-package nl.dmatin.raboassignment.dto.converter;
+package nl.dmatin.raboassignment.model.converter;
 
-import nl.dmatin.raboassignment.dto.UserDataDTO;
-import nl.dmatin.raboassignment.model.User;
+import nl.dmatin.raboassignment.model.dto.UserDataDTO;
+import nl.dmatin.raboassignment.model.user.User;
 
 import java.util.List;
 import java.util.Map;

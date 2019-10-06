@@ -1,8 +1,8 @@
-package nl.dmatin.raboassignment.model;
+package nl.dmatin.raboassignment.model.user;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import nl.dmatin.raboassignment.model.user.Role;
 
 import java.util.Set;
 

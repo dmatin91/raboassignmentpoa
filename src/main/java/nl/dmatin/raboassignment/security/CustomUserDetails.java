@@ -1,12 +1,10 @@
 package nl.dmatin.raboassignment.security;
 
-import nl.dmatin.raboassignment.model.Role;
-import nl.dmatin.raboassignment.model.User;
-import nl.dmatin.raboassignment.repository.RoleRepository;
+import nl.dmatin.raboassignment.model.user.Role;
+import nl.dmatin.raboassignment.model.user.User;
 import nl.dmatin.raboassignment.repository.UserRepository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

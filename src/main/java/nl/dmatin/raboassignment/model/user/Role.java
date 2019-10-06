@@ -1,4 +1,4 @@
-package nl.dmatin.raboassignment.model;
+package nl.dmatin.raboassignment.model.user;
 
 import lombok.Getter;
 import lombok.Setter;

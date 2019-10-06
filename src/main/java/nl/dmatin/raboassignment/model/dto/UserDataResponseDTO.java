@@ -1,9 +1,9 @@
-package nl.dmatin.raboassignment.dto;
+package nl.dmatin.raboassignment.model.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import nl.dmatin.raboassignment.model.Role;
+import nl.dmatin.raboassignment.model.user.Role;
 
 import java.util.List;
 
