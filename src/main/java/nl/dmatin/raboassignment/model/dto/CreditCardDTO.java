@@ -2,14 +2,12 @@ package nl.dmatin.raboassignment.model.dto;
 
 import lombok.Data;
 import nl.dmatin.raboassignment.model.Card;
-import nl.dmatin.raboassignment.model.poa.CardStatus;
 
 import java.math.BigDecimal;
 
 @Data
 public class CreditCardDTO implements Card {
 	private String number;
-	private CardStatus status;
 	private String cardNumber;
 	private String sequenceNumber;
 	private String cardHolder;

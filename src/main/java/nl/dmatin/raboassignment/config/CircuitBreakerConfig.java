@@ -6,4 +6,5 @@ import org.springframework.context.annotation.Configuration;
 @EnableCircuitBreaker
 @Configuration
 public class CircuitBreakerConfig {
+
 }

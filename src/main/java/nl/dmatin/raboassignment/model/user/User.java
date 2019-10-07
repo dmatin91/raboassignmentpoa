@@ -2,8 +2,8 @@ package nl.dmatin.raboassignment.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
-import nl.dmatin.raboassignment.model.user.Role;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
@@ -22,6 +22,7 @@ public class User {
 	private String username;
 	private String password;
 	private String email;
+	private List<String> powerOfAttorneys;
 	private boolean enabled;
 	@DBRef
 	private Set<Role> roles;

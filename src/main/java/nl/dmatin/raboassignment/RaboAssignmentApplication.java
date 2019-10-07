@@ -1,7 +1,15 @@
 package nl.dmatin.raboassignment;
 
 import nl.dmatin.raboassignment.model.user.Role;
+import nl.dmatin.raboassignment.model.user.User;
 import nl.dmatin.raboassignment.repository.RoleRepository;
+import nl.dmatin.raboassignment.repository.UserRepository;
+import nl.dmatin.raboassignment.service.UserService;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +30,7 @@ public class RaboAssignmentApplication {
 	}
 
 	@Bean
-	CommandLineRunner init(RoleRepository roleRepository) {
+	CommandLineRunner init(RoleRepository roleRepository, UserService userService, UserRepository userRepository) {
 
 		return args -> {
 
@@ -38,6 +46,18 @@ public class RaboAssignmentApplication {
 				Role newUserRole = new Role();
 				newUserRole.setRole("ROLE_USER");
 				roleRepository.save(newUserRole);
+			}
+
+			User testUser = userRepository.findByUsername("TESTUSER");
+			if (testUser == null) {
+				User newTestUser = new User();
+				newTestUser.setEmail("testuser@gmail.com");
+				newTestUser.setEnabled(true);
+				newTestUser.setId("0001");
+				newTestUser.setUsername("TESTUSER");
+				newTestUser.setPassword("TESTPW");
+				newTestUser.setPowerOfAttorneys(new ArrayList<>(Arrays.asList("0001", "0002", "0003")));
+				userService.signup(newTestUser);
 			}
 		};
 

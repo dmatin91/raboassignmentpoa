@@ -2,8 +2,13 @@ package nl.dmatin.raboassignment.service;
 
 import nl.dmatin.raboassignment.exception.CustomException;
 import nl.dmatin.raboassignment.model.user.User;
+import nl.dmatin.raboassignment.repository.RoleRepository;
 import nl.dmatin.raboassignment.repository.UserRepository;
 import nl.dmatin.raboassignment.security.JwtTokenProvider;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +23,9 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private RoleRepository roleRepository;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -42,6 +50,7 @@ public class UserService {
 		User userExists = userRepository.findByUsername(user.getEmail());
 		if (userExists == null) {
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
+			user.setRoles(new HashSet<>(Collections.singletonList(roleRepository.findByRole("ROLE_USER"))));
 			userRepository.save(user);
 			return jwtTokenProvider.createToken(user.getUsername(), user.getRoles());
 		} else {

@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Data
 public class ClientApiPowerOfAttorneyDTO {
-	private Long id;
+	private String id;
 	private String grantor;
 	private String grantee;
 	private String account;

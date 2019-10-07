@@ -9,4 +9,5 @@ public class ClientApiAccountDTO {
 	private String owner;
 	private BigDecimal balance;
 	private String created;
+	private String ended;
 }
