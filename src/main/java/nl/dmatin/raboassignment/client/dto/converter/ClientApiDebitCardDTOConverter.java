@@ -1,6 +1,7 @@
 package nl.dmatin.raboassignment.client.dto.converter;
 
 import nl.dmatin.raboassignment.client.dto.ClientApiDebitCardDTO;
+import nl.dmatin.raboassignment.model.CardType;
 import nl.dmatin.raboassignment.model.dto.DebitCardDTO;
 
 import org.springframework.core.convert.converter.Converter;
@@ -16,6 +17,7 @@ public class ClientApiDebitCardDTOConverter implements Converter<ClientApiDebitC
 		userDebitCardDto.setAtmLimit(dto.getAtmLimit());
 		userDebitCardDto.setPosLimit(dto.getPosLimit());
 		userDebitCardDto.setSequenceNumber(dto.getSequenceNumber());
+		userDebitCardDto.setType(CardType.DEBIT_CARD);
 		return userDebitCardDto;
 	}
 }

@@ -5,7 +5,7 @@ import nl.dmatin.raboassignment.model.poa.CardLimit;
 import nl.dmatin.raboassignment.model.poa.CardStatus;
 
 @Data
-public class ClientApiDebitCardDTO {
+public class ClientApiDebitCardDTO implements CardDTO {
 	private String id;
 	private CardStatus status;
 	private String cardNumber;

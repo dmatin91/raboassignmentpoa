@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		if (environment.getActiveProfiles()[0].equals("dev")) {
 			http.httpBasic().disable().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/users/signin").permitAll().antMatchers("/poa/overview").permitAll().antMatchers("/users/signup").permitAll().anyRequest()
+				.antMatchers("/users/signin").permitAll().antMatchers("/poa/testoverview").permitAll().antMatchers("/users/signup").permitAll().anyRequest()
 				.authenticated().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedEntryPoint()).and()
 				.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
 		} else {

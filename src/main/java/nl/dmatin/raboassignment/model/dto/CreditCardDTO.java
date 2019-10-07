@@ -2,6 +2,7 @@ package nl.dmatin.raboassignment.model.dto;
 
 import lombok.Data;
 import nl.dmatin.raboassignment.model.Card;
+import nl.dmatin.raboassignment.model.CardType;
 
 import java.math.BigDecimal;
 
@@ -12,4 +13,5 @@ public class CreditCardDTO implements Card {
 	private String sequenceNumber;
 	private String cardHolder;
 	private BigDecimal monthlyLimit;
+	private CardType type;
 }

@@ -1,6 +1,7 @@
 package nl.dmatin.raboassignment.client.dto.converter;
 
 import nl.dmatin.raboassignment.client.dto.ClientApiCreditCardDTO;
+import nl.dmatin.raboassignment.model.CardType;
 import nl.dmatin.raboassignment.model.dto.CreditCardDTO;
 
 import org.springframework.core.convert.converter.Converter;
@@ -13,6 +14,7 @@ public class ClientApiCreditCardDTOConverter implements Converter<ClientApiCredi
 		userCreditCardDto.setCardNumber(dto.getCardNumber());
 		userCreditCardDto.setSequenceNumber(dto.getSequenceNumber());
 		userCreditCardDto.setMonthlyLimit(dto.getMonthlyLimit());
+		userCreditCardDto.setType(CardType.CREDIT_CARD);
 		return userCreditCardDto;
 	}
 }

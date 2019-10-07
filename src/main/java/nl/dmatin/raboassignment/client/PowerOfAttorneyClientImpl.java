@@ -5,7 +5,12 @@ import nl.dmatin.raboassignment.client.dto.ClientApiAccountDTO;
 import nl.dmatin.raboassignment.client.dto.ClientApiCreditCardDTO;
 import nl.dmatin.raboassignment.client.dto.ClientApiDebitCardDTO;
 import nl.dmatin.raboassignment.client.dto.ClientApiPowerOfAttorneyDTO;
+import nl.dmatin.raboassignment.client.dto.ClientApiPowerOfAttorneyIdDTO;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,12 +29,25 @@ public class PowerOfAttorneyClientImpl implements PowerOfAttorneyClient {
 	private PowerOfAttorneyApiConfig apiConfig;
 
 	@Override
+	@HystrixCommand(fallbackMethod = "getPowerOfAttorneyIdsFallback", commandProperties = {
+		@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+	})
+	public List<ClientApiPowerOfAttorneyIdDTO> getAllPowerOfAttorneyIds() {
+		String url = UriComponentsBuilder.fromUriString(apiConfig.getUri())//
+			.path(apiConfig.getPoaService())//
+			.toUriString();
+		ResponseEntity<ClientApiPowerOfAttorneyIdDTO[]> responseEntity =  restTemplate.getForEntity(url, ClientApiPowerOfAttorneyIdDTO[].class);
+		ClientApiPowerOfAttorneyIdDTO[] objects = responseEntity.getBody();
+		return Arrays.asList(objects);
+	}
+
+	@Override
 	@HystrixCommand(fallbackMethod = "getPowerOfAttorneyFallback", commandProperties = {
 		@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000")
 	})
 	public ClientApiPowerOfAttorneyDTO getPowerOfAttorney(String poaId) {
 			String url = UriComponentsBuilder.fromUriString(apiConfig.getUri())//
-				.path(apiConfig.getPoaService())//
+				.path(apiConfig.getPoaService() +"/")//
 				.path(poaId)//
 				.toUriString();
 			return restTemplate.getForObject(url, ClientApiPowerOfAttorneyDTO.class);
@@ -71,6 +89,10 @@ public class PowerOfAttorneyClientImpl implements PowerOfAttorneyClient {
 		return restTemplate.getForObject(url, ClientApiAccountDTO.class);
 	}
 
+	public List<ClientApiPowerOfAttorneyIdDTO> getPowerOfAttorneyIdsFallback(){
+		log.warn("Using fallback for getPowerOfAttorneyIdsFallback");
+		return null;
+	}
 	public ClientApiPowerOfAttorneyDTO getPowerOfAttorneyFallback(String poaId){
 		log.warn("Using fallback for getPowerOfAttorneyFallback(" + poaId + ")");
 		return null;

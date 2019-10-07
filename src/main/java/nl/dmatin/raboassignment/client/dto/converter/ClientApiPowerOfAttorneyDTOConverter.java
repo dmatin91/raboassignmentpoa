@@ -10,6 +10,7 @@ public class ClientApiPowerOfAttorneyDTOConverter implements Converter<ClientApi
 	@Override
 	public PowerOfAttorneyDTO convert(ClientApiPowerOfAttorneyDTO dto){
 		PowerOfAttorneyDTO userDto = new PowerOfAttorneyDTO();
+		userDto.setId(dto.getId());
 		userDto.setGrantee(dto.getGrantee());
 		userDto.setGrantor(dto.getGrantor());
 		userDto.setAccount(null);

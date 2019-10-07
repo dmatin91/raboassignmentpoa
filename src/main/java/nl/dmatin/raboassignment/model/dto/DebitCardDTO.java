@@ -2,6 +2,7 @@ package nl.dmatin.raboassignment.model.dto;
 
 import lombok.Data;
 import nl.dmatin.raboassignment.model.Card;
+import nl.dmatin.raboassignment.model.CardType;
 import nl.dmatin.raboassignment.model.poa.CardLimit;
 
 @Data
@@ -13,4 +14,5 @@ public class DebitCardDTO implements Card {
 	private CardLimit atmLimit;
 	private CardLimit posLimit;
 	private Boolean contactless;
+	private CardType type;
 }

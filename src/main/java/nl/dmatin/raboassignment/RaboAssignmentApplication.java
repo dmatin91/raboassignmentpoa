@@ -8,8 +8,6 @@ import nl.dmatin.raboassignment.service.UserService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
@@ -48,13 +46,13 @@ public class RaboAssignmentApplication {
 				roleRepository.save(newUserRole);
 			}
 
-			User testUser = userRepository.findByUsername("TESTUSER");
+			User testUser = userRepository.findByUsername("Super duper company");
 			if (testUser == null) {
 				User newTestUser = new User();
 				newTestUser.setEmail("testuser@gmail.com");
 				newTestUser.setEnabled(true);
 				newTestUser.setId("0001");
-				newTestUser.setUsername("TESTUSER");
+				newTestUser.setUsername("Super duper company");
 				newTestUser.setPassword("TESTPW");
 				newTestUser.setPowerOfAttorneys(new ArrayList<>(Arrays.asList("0001", "0002", "0003")));
 				userService.signup(newTestUser);
