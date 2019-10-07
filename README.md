@@ -43,5 +43,5 @@ This simple application provides REST API for accessing aggregated information o
 
 **Application runs on:** http://localhost:8082
 
-**REST API documentation:** http://localhost:8082/swagger/
+**REST API documentation:** http://localhost:8082/swagger-ui.html
 
